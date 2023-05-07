@@ -5,7 +5,7 @@ let db=null
 b.use(express.static('public'));
 const MongoClient=mongodb.MongoClient;
 
-let dbstring='mongodb+srv://Dharanish:mongogct@cluster0.vyozq08.mongodb.net/todoapp?retryWrites=true&w=majority'
+let dbstring=<MONGODB LINK>
 let dbName='todoapp'
 
 MongoClient.connect(dbstring,{useNewUrlParser:true,useUnifiedTopology:true},function(err,client)// dbstring is unique value for us present in mongodb connect to cluster
@@ -19,7 +19,7 @@ MongoClient.connect(dbstring,{useNewUrlParser:true,useUnifiedTopology:true},func
 )
 function password(req, res, next){
   res.set('WWW-Authenticate', 'Basic realm="todoapp"')
-  if(req.headers.authorization == 'Basic RGhhcmFuaXNoOjIwMDM='){
+  if(req.headers.authorization == 'Basic <ENCODED PASSWORD>'){
     next()
   }else{
     res.status(401).send("please prove id password")
